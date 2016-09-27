@@ -102,9 +102,7 @@ def get_project(project_dir, config_path=None, project_name=None, verbose=False,
     )
     config_data = config.load(config_details)
 
-    api_version = environment.get(
-        'COMPOSE_API_VERSION',
-        API_VERSIONS[config_data.version])
+    api_version = '1.23'
 
     client = get_client(
         verbose=verbose, version=api_version, tls_config=tls_config,

@@ -70,6 +70,7 @@ class Network(object):
                 options=self.driver_opts,
                 ipam=self.ipam,
                 internal=self.internal,
+                enable_ipv6=True,
             )
 
     def remove(self):
