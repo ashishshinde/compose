@@ -64,13 +64,16 @@ class Network(object):
                 .format(self.full_name, driver_name)
             )
 
+            enable_ipv6=False
+            if self.driver_opts.has_key("com.docker.network.enable_ipv6") and self.driver_opts["com.docker.network.enable_ipv6"] ==  "true":
+                enable_ipv6=True
             self.client.create_network(
                 name=self.full_name,
                 driver=self.driver,
                 options=self.driver_opts,
                 ipam=self.ipam,
                 internal=self.internal,
-                enable_ipv6=True,
+                enable_ipv6=enable_ipv6,
             )
 
     def remove(self):
